@@ -1,5 +1,10 @@
 FROM paidax/dev-containers:ubuntu22.04-py3.11-v2.5
 
+RUN apt update && \
+    apt install -y curl && \
+    apt clean && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN git clone https://github.com/THUDM/ChatGLM2-6B && \
     cd ChatGLM2-6B && \
     pip install -r requirements.txt && \
